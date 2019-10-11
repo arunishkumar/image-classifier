@@ -15,7 +15,7 @@ get_ipython().magic('matplotlib inline')
 
 # In[32]:
 
-train_set_x_orig, train_set_y, test_set_x_orig, test_set_y, classes = load_dataset()
+train_set_x_orig, train_set_y, classes = load_dataset()
 
 
 # In[33]:
