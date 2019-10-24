@@ -6,9 +6,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import h5py
-import scipy
-from PIL import Image
-from scipy import ndimage
+import scipy.misc
 from lr_utils import load_dataset
 get_ipython().magic('matplotlib inline')
 
@@ -77,13 +75,13 @@ d=model(train_set_x, train_set_y,num_iterations = 2000, learning_rate = 0.005)
 
 my_image = "c.jpeg"
 fname = "images/" + my_image
-image = np.array(ndimage.imread(fname, flatten=False))
+image = np.array(scipy.misc.imread(fname, flatten=False))
 image = image/255.
 my_image = scipy.misc.imresize(image, size=(num_px,num_px)).reshape((1, num_px*num_px*3)).T
 my_predicted_image = predict(d["w"], d["b"], my_image)
 
 plt.imshow(image)
-print("y = " + str(np.squeeze(my_predicted_image)) + ", your algorithm predicts a \"" + classes[int(np.squeeze(my_predicted_image)),].decode("utf-8") +  "\" picture.")
+print("y = " + str(np.squeeze(my_predicted_image)) + "the given picture is  a \"" + classes[int(np.squeeze(my_predicted_image)),].decode("utf-8") +  "\" picture.")
 
 
 # In[ ]:
